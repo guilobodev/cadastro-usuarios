@@ -9,16 +9,16 @@ function Home() {
   const inputServico = useRef()
   const inputCanal = useRef()
 
-async function getUsers(){
-  const usersFromApi = await api.get('/usuarios')
-  setUsers(usersFromApi.data)
+// async function getUsers(){
+//   const usersFromApi = await api.get('/usuarios')
+//   setUsers(usersFromApi.data)
   
-}
+// }
 
-useEffect(() => { 
-  getUsers()
-}
-, [])
+// useEffect(() => { 
+//   getUsers()
+// }
+// , [])
 
 
 
@@ -29,7 +29,10 @@ async function createUsers(){
 
   console.log(name, servico, canal);
 
+  alert('atendimento criado com sucesso')
 
+
+  await api.post('/post', {name, servico, canal})
 }
 
 
@@ -39,13 +42,14 @@ async function createUsers(){
   return (
       <div className="container">
         <form >
-          <h1>formulário atendimento</h1>
+          <h1> atendimento</h1>
           <div className='nome'>
           <select name="atendentes" id="atendentes" ref={inputName}>
             <option value="guilherme">guilherme</option>
             <option value="vinicius">vinicius</option>
             <option value="humberto">humberto</option>
             <option value="gabriel">gabriel</option>
+            <option value="jessica">jessica</option>
           </select>
           </div>
 
@@ -69,10 +73,7 @@ async function createUsers(){
           <button type="button" onClick={createUsers}>enviar</button>
         </form>
 
-      </div>
-     
-       
-   
+      </div>        
   )
 }
 
