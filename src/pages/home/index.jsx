@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import './style.css'
 import api from '../../services/api'
+import logo from '../../assets/logoSEADgov.png'
 
 function Home() {
   const [users, setUsers] = useState([])
@@ -40,10 +41,11 @@ async function createUsers(){
 
 
   return (
-      <div className="container">
-        <form >
-          <h1> atendimento</h1>
-          <div className='nome'>
+  
+    <div className="container">
+      <form>
+        <h1>Atendimento</h1>
+        <div className='nome'>
           <select name="atendentes" id="atendentes" ref={inputName}>
             <option value="guilherme">guilherme</option>
             <option value="vinicius">vinicius</option>
@@ -51,29 +53,32 @@ async function createUsers(){
             <option value="gabriel">gabriel</option>
             <option value="jessica">jessica</option>
           </select>
-          </div>
+        </div>
 
 
-          <div className='cliente'>
+        <div className='cliente'>
           <select name="servico" id="servico" ref={inputServico}>
-            <option value="aposentadoria">aposentadoria</option>
+            <option value="Alteração de conta bancária">Alteração de conta bancária</option>
             <option value="tecnologia">tecnologia</option>
             <option value="tiradentes">tiradentes</option>
             <option value="ufologia">ufologia</option>
           </select>
-          </div>
+        </div>
 
-          <div className='canal'> 
+        <div className='canal'>
           <select name="canal" id="canal" ref={inputCanal}>
-            <option value="zapzap">whatsszap</option>
-            <option value="email">email</option>
-            <option value="telefone">telefone</option>
+            <option value="Whatsapp">Whatsapp</option>
+            <option value="Email">Email</option>
+            <option value="Recepção">Recepção</option>
           </select>
-          </div>
-          <button type="button" onClick={createUsers}>enviar</button>
-        </form>
+        </div>
+        <button type="button" onClick={createUsers}>enviar</button>
+      </form>
 
-      </div>        
+      <div className="image-container">
+        <img src={logo} alt="Descrição da imagem" />
+      </div>
+    </div>       
   )
 }
 
