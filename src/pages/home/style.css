@@ -4,65 +4,64 @@
   align-items: center;
   height: 80vh;
   flex-direction: column;
+}
 
-
+.home-body {
+  background-color: #0E4194;
+  height: 100vh;
 }
 
 h1 {
   font-size: 2.0rem;
   margin-bottom: 20px;
   text-align: center;
-  
-
-  
 }
+
 form {
   display: flex;
   flex-direction: column;
   width: 400px;
-  max-width: 50%px;
+  max-width: 50%;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   gap: 20px;
-
-
-  & button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #0077cc;
-    color: #fff;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: 0.3s;
-
-    &:hover {
-      background-color: #005fa3;
-    }
-
-    
-  }
-  select{
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    color: #000;
-    font-size: 1.0rem;
-    cursor: pointer;
-    transition: 0.3s;
-    width: 100%;
-    
-  }
 }
+
+form button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0077cc;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #005fa3;
+}
+
+form select {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  color: #000;
+  font-size: 1.0rem;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
 .image-container {
   display: flex;
   margin-top: 30px;
-  img {
-    width: 100%;
-    height: 150px;
-  }
+}
 
+.image-container img {
+  width: 100%;
+  height: 150px;
 }

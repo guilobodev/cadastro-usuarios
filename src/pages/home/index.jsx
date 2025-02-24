@@ -10,16 +10,7 @@ function Home() {
   const inputServico = useRef()
   const inputCanal = useRef()
 
-// async function getUsers(){
-//   const usersFromApi = await api.get('/usuarios')
-//   setUsers(usersFromApi.data)
-  
-// }
 
-// useEffect(() => { 
-//   getUsers()
-// }
-// , [])
 
 
 
@@ -41,7 +32,7 @@ async function createUsers(){
 
 
   return (
-  
+    <div className="home-body">
     <div className="container">
       <form>
         <h1>Atendimento</h1>
@@ -114,7 +105,8 @@ async function createUsers(){
       <div className="image-container">
         <img src={logo} alt="Descrição da imagem" />
       </div>
-    </div>       
+    </div>
+  </div>       
   )
 }
 
