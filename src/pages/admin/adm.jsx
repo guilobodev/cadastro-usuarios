@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react'
 import api from '../../services/api'
 import './adm.css'
+import * as XLSX from 'xlsx';
+
 
 function Admin() {
+
+
+ 
+
 
   // essa função (getUsers) inteira é responsável por pegar o que esta no banco de dados; 
   // pelo get com axios.
@@ -11,11 +17,32 @@ function Admin() {
   async function getUsers() {
     const usersFromApi = await api.get('/usuarios')
     setUsers(usersFromApi.data)
+    alert('Dados Atualizados')
   }
 
   useEffect(() => {
     getUsers()
   }, [])
+
+
+
+  //https://www.tabnews.com.br/mayconbalves/como-exportar-dados-de-uma-api-para-excel-usando-react
+  // site que ensina a exportar dados para excel
+  
+  const baixarDados = () => {
+    const linhas = users.map((user) => {
+      return [user.name, user.servico, user.canal]
+    } )
+    
+    const wb = XLSX.utils.book_new()
+    const ws = XLSX.utils.aoa_to_sheet([['Nome', 'Serviço', 'Canal'], ...linhas])
+    XLSX.utils.book_append_sheet(wb, ws, 'Usuarios')
+    XLSX.writeFile(wb, 'usuarios.xlsx')
+
+
+
+
+  }
 
   const contadorServco = () => {
     const servicoArray = {}
@@ -94,6 +121,10 @@ function Admin() {
             </p>
           ))}
         </div>
+      </div>
+      <div className='botao-container'> 
+        <button onClick={getUsers} className='botaoAtualizar' >Atualizar</button>
+        <button onClick={baixarDados} className='botaoExcel'>baixar dados</button>
       </div>
     </div>
     </div>

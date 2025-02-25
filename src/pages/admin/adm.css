@@ -45,3 +45,43 @@
     margin-bottom: 20px;
     text-align: center;
   }
+
+
+.botaoAtualizar {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+  }
+
+  .botaoAtualizar:hover {
+    background-color: #005fa3;
+}
+
+  .botaoExcel {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+
+  }
+  .botaoExcel:hover {
+    background-color: #005fa3;
+}
+.botao-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
