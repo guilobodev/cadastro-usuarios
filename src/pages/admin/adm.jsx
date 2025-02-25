@@ -64,15 +64,14 @@ function Admin() {
   return (
     <div className='body-admin'>
     <div className="div-admin">
-      <h2>Contadores</h2>
+      <h2>Tela de Controle</h2>
       <div className="contadores">
         <div className="contador">
           <h3>Serviços</h3>
-
+          
           {/* aqui ele pega o objeto do contador do servico, e traz apenas as chaves sem as quantidades.
           depois ele percorre essas chaves com o .map e coloca essas chaves em um paragrafo.  Apos isso ele mostra a quantidade 
           usando o servicoContador[key] */}
-          
           {Object.keys(servicoContador).map((key) => (
             <p key={key}>
               <strong>{key}:</strong> {servicoContador[key]}
