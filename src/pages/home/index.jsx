@@ -13,6 +13,10 @@ function Home() {
 
 
 
+// aqui ele cria os usuarios no banco de dados
+// ele pega os valores dos inputs e coloca em variaveis
+// depois ele faz um post com axios para o backend
+
 
 async function createUsers(){
   const name = inputName.current.value;
@@ -21,10 +25,12 @@ async function createUsers(){
 
   console.log(name, servico, canal);
 
+
+  //faz um alerta para o usuario, dizendo que o atendimento foi criado com sucesso
   alert('atendimento criado com sucesso')
 
 
-  await api.post('/post', {name, servico, canal})
+  await api.post('/post', {name, servico, canal})  //envia os dados para o backend
 }
 
 
@@ -64,7 +70,7 @@ async function createUsers(){
             <option value="declaracao de dependentes">declaracao de dependentes</option>
             <option value="declaracao de inexistencia de vinculo">declaracao de inexistencia de vinculo</option>
             <option value="declaracao de pensao alimenticia">declaracao de pensao alimenticia</option>
-            <option value="declaracaoo de tempo de averbacao">declaracao de tempo de averbacao</option>
+            <option value="declaracao de tempo de averbacao">declaracao de tempo de averbacao</option>
             <option value="declaracao para abertura da conta">declaração para abertura da conta</option>
             <option value="defesa administrativa">defesa administrativa</option>
             <option value="denuncia">denuncia</option>
@@ -84,9 +90,6 @@ async function createUsers(){
             <option value="reconsideracao de decisao administrativa">reconsideração de decisão administrativa</option>
             <option value="revisao de aposentadoria">revisão de aposentadoria</option>
             <option value="revisao de pensao">revisão de pensão</option>
-            
-
-
 
           </select>
         </div>
@@ -99,11 +102,12 @@ async function createUsers(){
             <option value="Central telefonica">central telefonica</option>
           </select>
         </div>
-        <button type="button" onClick={createUsers}>enviar</button>
+        <button type="button" onClick={createUsers}>enviar</button>  
+        {/* botao para crar os dados no "/post" */}
       </form>
 
       <div className="image-container">
-        <img src={logo} alt="Descrição da imagem" />
+        <img src={logo} alt="logo do sergipe prevencia" />
       </div>
     </div>
   </div>       

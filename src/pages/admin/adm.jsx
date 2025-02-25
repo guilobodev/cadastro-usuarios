@@ -3,6 +3,9 @@ import api from '../../services/api'
 import './adm.css'
 
 function Admin() {
+
+  // essa função (getUsers) inteira é responsável por pegar o que esta no banco de dados; 
+  // pelo get com axios.
   const [users, setUsers] = useState([])
 
   async function getUsers() {
@@ -14,72 +17,81 @@ function Admin() {
     getUsers()
   }, [])
 
-  const countByService = () => {
-    const serviceCount = {}
+  const contadorServco = () => {
+    const servicoArray = {}
     users.forEach((user) => {
-      if (serviceCount[user.servico]) {
-        serviceCount[user.servico] += 1
+      if (servicoArray[user.servico]) {
+        servicoArray[user.servico] += 1
       } else {
-        serviceCount[user.servico] = 1
+        servicoArray[user.servico] = 1
       }
     })
-    return serviceCount
+    return servicoArray
   }
 
-  const countByUser = () => {
-    const userCount = {}
+
+  //oq acontece aqui:  é que ele pega o array de usuarios, la do hook (useState, "const [users, setUsers]") e cria um objeto vazio
+  //depois ele faz um loop (forEach((user))) em cada usuario e verifica se o nome do usuario ja existe no objeto
+  //se existir ele incrementa 1 no valor do nome do usuario, se não ele cria o nome do usuario e coloca 1
+  const contadorUsuario = () => {
+    const usuarioArray = {}
     users.forEach((user) => {
-      if (userCount[user.name]) {
-        userCount[user.name] += 1
+      if (usuarioArray[user.name]) {
+        usuarioArray[user.name] += 1
       } else {
-        userCount[user.name] = 1
+        usuarioArray[user.name] = 1
       }
     })
-    return userCount
+    return usuarioArray
   }
 
-  const countByChannel = () => {
-    const channelCount = {}
+  const contadorCanal = () => {
+    const canalArray = {}
     users.forEach((user) => {
-      if (channelCount[user.canal]) {
-        channelCount[user.canal] += 1
+      if (canalArray[user.canal]) {
+        canalArray[user.canal] += 1
       } else {
-        channelCount[user.canal] = 1
+        canalArray[user.canal] = 1
       }
     })
-    return channelCount
+    return canalArray
   }
 
-  const serviceCount = countByService()
-  const userCount = countByUser()
-  const channelCount = countByChannel()
+  const servicoContador = contadorServco()
+  const usuarioContador = contadorUsuario ()
+  const canalContador = contadorCanal()
 
   return (
     <div className='body-admin'>
     <div className="div-admin">
       <h2>Contadores</h2>
-      <div className="counters">
-        <div className="counter">
+      <div className="contadores">
+        <div className="contador">
           <h3>Serviços</h3>
-          {Object.keys(serviceCount).map((key) => (
+
+          {/* aqui ele pega o objeto do contador do servico, e traz apenas as chaves sem as quantidades.
+          depois ele percorre essas chaves com o .map e coloca essas chaves em um paragrafo.  Apos isso ele mostra a quantidade 
+          usando o servicoContador[key] */}
+          
+          {Object.keys(servicoContador).map((key) => (
             <p key={key}>
-              <strong>{key}:</strong> {serviceCount[key]}
+              <strong>{key}:</strong> {servicoContador[key]}
             </p>
           ))}
         </div>
-        <div className="counter">
+        <div className="contador">
           <h3>Usuários</h3>
-          {Object.keys(userCount).map((key) => (
+          {Object.keys(usuarioContador).map((key) => (
             <p key={key}>
-              <strong>{key}:</strong> {userCount[key]}
+              <strong>{key}:</strong> {usuarioContador[key]}
             </p>
           ))}
         </div>
-        <div className="counter">
+        <div className="contador">
           <h3>Canais</h3>
-          {Object.keys(channelCount).map((key) => (
+          {Object.keys(canalContador).map((key) => (
             <p key={key}>
-              <strong>{key}:</strong> {channelCount[key]}
+              <strong>{key}:</strong> {canalContador[key]}
             </p>
           ))}
         </div>
