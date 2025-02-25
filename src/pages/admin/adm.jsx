@@ -44,6 +44,25 @@ function Admin() {
 
   }
 
+ 
+
+  //oq acontece aqui: essa função, ela pega o array de usuarios, la do hook (useState, "const [users, setUsers]") e cria um objeto vazio
+  //depois ele faz um loop (forEach((user))) em cada usuario e verifica se o nome do usuario ja existe no objeto, se for o primeiro, ele nao existe
+  //então ele cria o nome do usuario e coloca 1, se o nome do usuario ja existir, ele incrementa 1 no valor do nome do usuario
+  //depois ele retorna o objeto com os nomes dos usuarios e a quantidade de vezes que eles aparecem
+
+  const contadorUsuario = () => {
+    const usuarioArray = {}
+    users.forEach((user) => {
+      if (usuarioArray[user.name]) {
+        usuarioArray[user.name] += 1
+      } else {
+        usuarioArray[user.name] = 1
+      }
+    })
+    return usuarioArray
+  }
+
   const contadorServco = () => {
     const servicoArray = {}
     users.forEach((user) => {
@@ -56,21 +75,6 @@ function Admin() {
     return servicoArray
   }
 
-
-  //oq acontece aqui:  é que ele pega o array de usuarios, la do hook (useState, "const [users, setUsers]") e cria um objeto vazio
-  //depois ele faz um loop (forEach((user))) em cada usuario e verifica se o nome do usuario ja existe no objeto
-  //se existir ele incrementa 1 no valor do nome do usuario, se não ele cria o nome do usuario e coloca 1
-  const contadorUsuario = () => {
-    const usuarioArray = {}
-    users.forEach((user) => {
-      if (usuarioArray[user.name]) {
-        usuarioArray[user.name] += 1
-      } else {
-        usuarioArray[user.name] = 1
-      }
-    })
-    return usuarioArray
-  }
 
   const contadorCanal = () => {
     const canalArray = {}
