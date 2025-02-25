@@ -26,11 +26,10 @@ async function createUsers(){
   console.log(name, servico, canal);
 
 
-  //faz um alerta para o usuario, dizendo que o atendimento foi criado com sucesso
   alert('atendimento criado com sucesso')
 
 
-  await api.post('/post', {name, servico, canal})  //envia os dados para o backend
+  await api.post('/post', {name, servico, canal})
 }
 
 

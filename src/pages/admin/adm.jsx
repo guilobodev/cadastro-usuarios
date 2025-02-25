@@ -46,46 +46,46 @@ function Admin() {
 
  
 
-  //oq acontece aqui: essa função, ela pega o array de usuarios, la do hook (useState, "const [users, setUsers]") e cria um objeto vazio
+  //oq acontece aqui: essa função, ela pega o array de usuarios, la do hook (useState, "const [users, setUsers]") e cria um objeto vazio -> usuarioArray = {};
   //depois ele faz um loop (forEach((user))) em cada usuario e verifica se o nome do usuario ja existe no objeto, se for o primeiro, ele nao existe
   //então ele cria o nome do usuario e coloca 1, se o nome do usuario ja existir, ele incrementa 1 no valor do nome do usuario
   //depois ele retorna o objeto com os nomes dos usuarios e a quantidade de vezes que eles aparecem
 
   const contadorUsuario = () => {
-    const usuarioArray = {}
+    const usuarioObj = {}
     users.forEach((user) => {
-      if (usuarioArray[user.name]) {
-        usuarioArray[user.name] += 1
+      if (usuarioObj[user.name]) {
+        usuarioObj[user.name] += 1
       } else {
-        usuarioArray[user.name] = 1
+        usuarioObj[user.name] = 1
       }
     })
-    return usuarioArray
+    return usuarioObj
   }
 
   const contadorServco = () => {
-    const servicoArray = {}
+    const servicoObj = {}
     users.forEach((user) => {
-      if (servicoArray[user.servico]) {
-        servicoArray[user.servico] += 1
+      if (servicoObj[user.servico]) {
+        servicoObj[user.servico] += 1
       } else {
-        servicoArray[user.servico] = 1
+        servicoObj[user.servico] = 1
       }
     })
-    return servicoArray
+    return servicoObj
   }
 
 
   const contadorCanal = () => {
-    const canalArray = {}
+    const canalObj = {}
     users.forEach((user) => {
-      if (canalArray[user.canal]) {
-        canalArray[user.canal] += 1
+      if (canalObj[user.canal]) {
+        canalObj[user.canal] += 1
       } else {
-        canalArray[user.canal] = 1
+        canalObj[user.canal] = 1
       }
     })
-    return canalArray
+    return canalObj
   }
 
   const servicoContador = contadorServco()
