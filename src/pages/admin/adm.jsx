@@ -7,8 +7,9 @@ import * as XLSX from 'xlsx';
 function Admin() {
 
 
- 
 
+
+  
 
   // essa função (getUsers) inteira é responsável por pegar o que esta no banco de dados; 
   // pelo get com axios.
@@ -37,7 +38,7 @@ function Admin() {
     const wb = XLSX.utils.book_new()
     const ws = XLSX.utils.aoa_to_sheet([['Nome', 'Serviço', 'Canal'], ...linhas])
     XLSX.utils.book_append_sheet(wb, ws, 'Usuarios')
-    XLSX.writeFile(wb, 'usuarios.xlsx')
+    XLSX.writeFile(wb, 'atendimento.xlsx')
 
 
 
@@ -46,7 +47,7 @@ function Admin() {
 
  
 
-  //oq acontece aqui: essa função, ela pega o array de usuarios, la do hook (useState, "const [users, setUsers]") e cria um objeto vazio -> usuarioArray = {};
+  //oq acontece aqui: essa função, ela pega o array de usuarios, la do hook (useState, "const [users, setUsers]") e cria um objeto vazio -> usuarioObj = {};
   //depois ele faz um loop (forEach((user))) em cada usuario e verifica se o nome do usuario ja existe no objeto, se for o primeiro, ele nao existe
   //então ele cria o nome do usuario e coloca 1, se o nome do usuario ja existir, ele incrementa 1 no valor do nome do usuario
   //depois ele retorna o objeto com os nomes dos usuarios e a quantidade de vezes que eles aparecem
@@ -103,6 +104,7 @@ function Admin() {
           {/* aqui ele pega o objeto do contador do servico, e traz apenas as chaves sem as quantidades.
           depois ele percorre essas chaves com o .map e coloca essas chaves em um paragrafo.  Apos isso ele mostra a quantidade 
           usando o servicoContador[key] */}
+
           {Object.keys(servicoContador).map((key) => (
             <p key={key}>
               <strong>{key}:</strong> {servicoContador[key]}

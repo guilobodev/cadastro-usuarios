@@ -4,16 +4,13 @@ import api from '../../services/api'
 import logo from '../../assets/logoSEADgov.png'
 
 function Home() {
-  const [users, setUsers] = useState([])
+  //estou referenciando que no select de nome, servico e canal, eu quero pegar o valor deles usando o useRef
 
   const inputName = useRef()
   const inputServico = useRef()
   const inputCanal = useRef()
 
-
-
-
-// aqui ele cria os usuarios no banco de dados
+// essa funcao ela cria, quando acionada,  os usuarios no banco de dados
 // ele pega os valores dos inputs e coloca em variaveis
 // depois ele faz um post com axios para o backend
 
@@ -24,12 +21,8 @@ async function createUsers(){
   const canal = inputCanal.current.value;
 
   console.log(name, servico, canal);
-
-
-  alert('atendimento criado com sucesso')
-
-
   await api.post('/post', {name, servico, canal})
+  alert('atendimento criado com sucesso')
 }
 
 
